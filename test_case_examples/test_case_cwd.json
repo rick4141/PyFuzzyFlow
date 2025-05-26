@@ -1,0 +1,12 @@
+{
+  "name": "Sanity Check: Current Directory",
+  "min_passed": 1,
+  "steps": [
+    {
+      "description": "Check if PWD contains 'Users'",
+      "type": "boolean",
+      "command": "pwd | grep Users",
+      "required": true
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Sanity Check: Multi-step",
+  "min_passed": 2,
+  "steps": [
+    {
+      "description": "Python exists",
+      "type": "boolean",
+      "command": "which python3",
+      "required": true
+    },
+    {
+      "description": "Check hostname contains 'local'",
+      "type": "shell",
+      "command": "hostname",
+      "eval_contains": "local",
+      "required": false
+    },
+    {
+      "description": "Fuzzy CPU percent check",
+      "type": "fuzzy",
+      "metric_func": "cpu_percent",
+      "eval_label": "LOW",
+      "thresholds": [10, 30, 70],
+      "history_size": 5,
+      "update_every": 1,
+      "duration": 2,
+      "required": true
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Sanity Check: Python Version",
+  "min_passed": 1,
+  "steps": [
+    {
+      "description": "Check Python version (Shell)",
+      "type": "shell",
+      "command": "python3 --version",
+      "eval_contains": "Python",
+      "required": true
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Simple Full Coverage Test Pipeline",
+  "min_passed": 2,
+  "steps": [
+    {
+      "description": "Check Python version (Shell)",
+      "type": "shell",
+      "command": "python3 --version",
+      "eval_contains": "Python"
+    },
+    {
+      "description": "Is current directory /tmp? (Boolean, optional)",
+      "type": "boolean",
+      "command": "[[ \"$PWD\" == \"/tmp\" ]]",
+      "required": false
+    },
+    {
+      "description": "Fuzzy CPU check",
+      "type": "fuzzy",
+      "metric_func": "cpu_percent",
+      "thresholds": [5, 20, 50],
+      "label_names": ["LOW", "MED", "HIGH"],
+      "duration": 3,
+      "eval_label": "LOW"
+    },
+    {
+      "description": "Custom shell metric: Free RAM in MB",
+      "type": "fuzzy",
+      "metric_func": "custom_shell",
+      "custom_command": "free -m | grep Mem",
+      "parse_regex": "Mem:\\s+\\d+\\s+\\d+\\s+(\\d+)",
+      "parse_formula": "int(match.group(1))",
+      "thresholds": [500, 2000, 4000],
+      "label_names": ["LOW", "MED", "HIGH"],
+      "duration": 2,
+      "eval_label": "MED"
+    }
+  ]
+}

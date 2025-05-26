@@ -1,0 +1,17 @@
+{
+  "name": "Sanity Check: Fuzzy CPU",
+  "min_passed": 1,
+  "steps": [
+    {
+      "description": "Fuzzy CPU percent check",
+      "type": "fuzzy",
+      "metric_func": "cpu_percent",
+      "eval_label": "LOW",
+      "thresholds": [10, 30, 70],
+      "history_size": 5,
+      "update_every": 1,
+      "duration": 3,
+      "required": true
+    }
+  ]
+}

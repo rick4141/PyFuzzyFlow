@@ -1,0 +1,18 @@
+{
+  "name": "Sanity Check: Optional Step",
+  "min_passed": 1,
+  "steps": [
+    {
+      "description": "Check Python exists (required)",
+      "type": "boolean",
+      "command": "which python3",
+      "required": true
+    },
+    {
+      "description": "Optional check, always fails",
+      "type": "boolean",
+      "command": "exit 1",
+      "required": false
+    }
+  ]
+}

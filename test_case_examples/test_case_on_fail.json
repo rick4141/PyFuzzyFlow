@@ -1,0 +1,23 @@
+{
+  "name": "Sanity Check: On Fail Example",
+  "min_passed": 1,
+  "steps": [
+    {
+      "description": "Step that fails with on_fail",
+      "type": "boolean",
+      "command": "exit 1",
+      "retries": 2,
+      "on_fail": {
+        "command": "echo 'This is the on_fail action'"
+      },
+      "required": true
+    },
+    {
+      "description": "Always passes",
+      "type": "shell",
+      "command": "echo PASSED",
+      "eval_contains": "PASSED",
+      "required": true
+    }
+  ]
+}

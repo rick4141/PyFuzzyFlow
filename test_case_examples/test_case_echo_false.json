@@ -1,0 +1,12 @@
+{
+  "name": "Sanity Check: False Condition",
+  "min_passed": 0,
+  "steps": [
+    {
+      "description": "This will always fail",
+      "type": "boolean",
+      "command": "exit 1",
+      "required": true
+    }
+  ]
+}
