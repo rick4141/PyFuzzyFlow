@@ -1,5 +1,7 @@
 # PyFuzzyFlow Industrial Fuzzy Test Pipeline Runner
 
+![PyFuzzyFlow](PyFuzzyFlow.png)
+
 ## Table of Contents
 
 - [Introduction](#introduction)
